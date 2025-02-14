@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
-    <title>小孙同学</title>
+    <title>XIU❤️XU</title>
     <meta name="language" content="zh-CN">
-    <meta name="title" content="小孙同学">
-    <meta name="github" content="https://github.com/sun0225SUN/Awesome-Love-Code">
-    <meta name="describe" content="收集不易，您的star是我坚持的动力，同时也欢迎各位PR哦! ">
+    <meta name="describe" content="多幸运,遇见了你!多幸运,爱上了你,多幸运,能在一起!~ ~ ~">
     <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/sun0225SUN/photos/img/20210715233345.png">
     <link rel="stylesheet" href="css/love.css">
 </head>
 
 <body>
 
-    <audio autoplay="autopaly" loop="loop" id="audios" preload="auto">
-        <source src="MP3/1.mp3" />
+    <audio id="audios" preload="auto" loop>
+        <source src="MP3/1.mp3" type="audio/mpeg" />
+        您的浏览器不支持 audio 标签。
     </audio>
+
+    <button id="playButton" style="position: fixed; top: 10px; left: 10px; z-index: 999; padding: 8px 16px; font-size: 16px; cursor: pointer;">播放音乐</button>
 
     <div class="container" onselectstart="return false;" unselectable="on" style="-moz-user-select:none;">
 
@@ -41,6 +43,19 @@
     </div>
 
     <script type="text/javascript" src="js/love.js"></script>
+    <script>
+        const audio = document.getElementById('audios');
+        const playButton = document.getElementById('playButton');
+
+        playButton.addEventListener('click', function () {
+            audio.play().then(() => {
+                playButton.style.display = 'none'; // 播放成功后隐藏按钮
+            }).catch(error => {
+                console.error('播放失败:', error);
+                alert('播放失败，请手动点击播放按钮');
+            });
+        });
+    </script>
 
 </body>
 
